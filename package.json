@@ -1,5 +1,5 @@
 {
-  "name": "webPack-Intro",
+  "name": "webpack-intro",
   "version": "1.0.0",
   "description": "We learn ways of webpack",
   "main": "index.js",
@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "E.L.",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EivydasLeo/Webpack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EivydasLeo/Webpack/issues"
+  },
+  "homepage": "https://github.com/EivydasLeo/Webpack#readme"
 }
