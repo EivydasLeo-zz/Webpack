@@ -7,3 +7,10 @@ npx webpack --mode production
 
 3)sukompiliavimas kurimui (development mode):
 npx webpack --mode development
+
+
+4)pasidarem scriptus dev build ir start norim idiegti html plugina:
+npm install --save-dev html-webpack-plugin
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
