@@ -1,12 +1,13 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  // devtool: "source-map", // kad kai sukompiliuojam development eitu geriau suprasti kada
+  // devtool: "source-map", // kad kai sukompiliujam development eitu geriau suprasti koda
   entry: {
-    // nurodom musu programos pagrindini js faila
+    //   nurodom musu programos pagrindini js faila
     main: path.resolve(__dirname, "./src/app.js"),
   },
   output: {
@@ -14,12 +15,15 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-
   module: {
     rules: [
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+      {
         test: /\.css$/i, // pritaikom taisykle tik *.css failams
-        //TODO: production env MiniCssExtractPlugin
+        // TODO: production env MiniCssExtractPlugin
         use: [MiniCssExtractPlugin.loader, "css-loader"], // perdarom .css failus i dist folderi
       },
       {
@@ -28,14 +32,27 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"], // kokia senumo js mes norim paversti veikianciu senesne narsyklese
+            // kokio senummo js mes norim paversti veikianciu senesnese narsyklese
+            presets: ["@babel/preset-env"],
           },
         },
       },
     ],
   },
-
   plugins: [
+    new ImageMinimizerPlugin({
+      filename: "images/[name].webp",
+      deleteOriginalAssets: true,
+      minimizerOptions: {
+        plugins: [
+          // ["imagemin-webp"],
+          ["svgo"],
+          ["gifsicle"],
+          ["pngquant"],
+          ["mozjpeg", { quality: 70 }],
+        ],
+      },
+    }),
     new MiniCssExtractPlugin({
       filename: "style.css",
     }),
