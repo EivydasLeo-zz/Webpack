@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
@@ -19,7 +20,7 @@ module.exports = {
       {
         test: /\.css$/i, // pritaikom taisykle tik *.css failams
         //TODO: production env MiniCssExtractPlugin
-        use: ["style-loader", "css-loader"], // perdarom .css failus i dist folderi
+        use: [MiniCssExtractPlugin.loader, "css-loader"], // perdarom .css failus i dist folderi
       },
       {
         test: /\.js$/, // .js
@@ -35,6 +36,7 @@ module.exports = {
   },
 
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: "This is dynamic Webpack Title",
       template: "src/template.html",

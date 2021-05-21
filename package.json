@@ -5,27 +5,28 @@
   "main": "index.js",
   "scripts": {
     "start": "npm install",
-    "dev": "webpack --config webpack.dev.js",
+    "build:dev": "webpack ",
     "serve": "webpack serve --open",
     "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
-  "author": "E.L.",
+  "author": "M.K.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EivydasLeo/Webpack.git"
+    "url": "git+https://github.com/MariusCodeAcademy/js3_Webpack.git"
   },
   "bugs": {
-    "url": "https://github.com/EivydasLeo/Webpack/issues"
+    "url": "https://github.com/MariusCodeAcademy/js3_Webpack/issues"
   },
-  "homepage": "https://github.com/EivydasLeo/Webpack#readme",
+  "homepage": "https://github.com/MariusCodeAcademy/js3_Webpack#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.5",
     "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",

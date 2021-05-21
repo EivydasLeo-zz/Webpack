@@ -3,12 +3,12 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  devtool: "source-map", // kad kai sukompiliuojam development eitu geriau suprasti kada
+  devtool: "source-map", // kad kai sukompiliujam development eitu geriau suprasti koda
   devServer: {
     contentBase: "./dist",
   },
   entry: {
-    // nurodom musu programos pagrindini js faila
+    //   nurodom musu programos pagrindini js faila
     main: path.resolve(__dirname, "./src/app.js"),
   },
   output: {
@@ -16,12 +16,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-
   module: {
     rules: [
       {
         test: /\.css$/i, // pritaikom taisykle tik *.css failams
-        //TODO: production env MiniCssExtractPlugin
+        // TODO: production env MiniCssExtractPlugin
         use: ["style-loader", "css-loader"], // perdarom .css failus i dist folderi
       },
       {
@@ -30,13 +29,13 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"], // kokia senumo js mes norim paversti veikianciu senesne narsyklese
+            // kokio senummo js mes norim paversti veikianciu senesnese narsyklese
+            presets: ["@babel/preset-env"],
           },
         },
       },
     ],
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       title: "This is dynamic Webpack Title",
