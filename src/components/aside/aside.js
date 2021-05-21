@@ -1,7 +1,7 @@
 import "./aside.css";
-export default function asideFunction(title, btnText) {
-  const aside = document.createElement("aside");
-  aside.className = "aside";
+export default function aside(title, btnText) {
+  const asideEl = document.createElement("aside");
+  asideEl.className = "aside";
   const h2 = document.createElement("h2");
   h2.textContent = title;
   const ul = document.createElement("ul");
@@ -15,7 +15,7 @@ export default function asideFunction(title, btnText) {
   button.textContent = btnText;
 
   ul.append(li1, li2, li3);
-  aside.append(h2, ul, button);
+  asideEl.append(h2, ul, button);
 
-  return aside;
+  return asideEl;
 }
