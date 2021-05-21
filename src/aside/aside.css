@@ -1,0 +1,10 @@
+.aside {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1em;
+  color: white;
+  text-align: left;
+}
+
+ul > li {
+  padding: 5px;
+}
