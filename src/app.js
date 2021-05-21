@@ -3,24 +3,17 @@ import say from "./js/say";
 import "./css/style.css"; //itraukiam css faila
 import banner from "./components/banner/ban";
 import aside from "./components/aside/aside";
-// const path = require("path");
-// console.log(" path", path.resolve(__dirname));
-console.log("index.js");
 
-console.log(" add(1, 2, 3) = ", add(1, 2, 3));
-console.log(' say("nice day")', say("nice day"));
+import cuteGreen from "./img/download.jpg";
 
-const obj = { age: 30, name: "bob" };
-const copy = { ...obj, gender: "male" };
-
-console.log(" copy", copy);
+const img1 = document.createElement("img");
+img1.src = cuteGreen;
 
 const bestBanner = banner("Dynamic banners are here", "Webpack is here");
 
 const bestAside = aside("Dynamic aside is here", "Aside btn is here");
 
-document.body.append(bestBanner);
-document.body.append(bestAside);
+document.body.append(bestBanner, bestAside, img1);
 
 // 5P padaryti kad paspaudus aside mygtuka gautume konsole log savo bannerio antraste
 
