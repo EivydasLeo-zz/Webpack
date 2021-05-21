@@ -36,7 +36,9 @@ module.exports = {
   },
 
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "style.css",
+    }),
     new HtmlWebpackPlugin({
       title: "This is dynamic Webpack Title",
       template: "src/template.html",
