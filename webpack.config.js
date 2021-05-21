@@ -23,7 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "This is dynamic Webpack Title",
-      template: "src/index.html",
+      template: "src/template.html",
     }),
   ],
 };
