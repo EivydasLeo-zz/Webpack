@@ -14,3 +14,13 @@ npm install --save-dev html-webpack-plugin
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+
+
+// post css plugin - kad pridetu reikalingus webkit pagal narsyle ir versija
+npm install --save-dev postcss postcss-loader postcss-preset-env
+
+
+.browserslistrc
+last 2 versions //imam paskutines 2 narsykliu versijas
+> 0.5% // bandom palaikyti 99.5% narsykliu 
+IE 9 // bandom prideti palaikyma internet explorer 9

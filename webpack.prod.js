@@ -14,7 +14,7 @@ module.exports = {
     filename: "final.bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    assetModuleFilename: "images/[hash][ext]", // nurodome kur bus padeti
+    assetModuleFilename: "images/[hash][ext]", // nurodome kur bus padeti musu paveiksleliai
   },
   module: {
     rules: [
@@ -25,7 +25,8 @@ module.exports = {
       {
         test: /\.css$/i, // pritaikom taisykle tik *.css failams
         // TODO: production env MiniCssExtractPlugin
-        use: [MiniCssExtractPlugin.loader, "css-loader"], // perdarom .css failus i dist folderi
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        // perdarom .css failus i dist folderi // postCss for webkit
       },
       {
         test: /\.js$/, // .js
@@ -43,13 +44,7 @@ module.exports = {
   plugins: [
     new ImageMinimizerPlugin({
       minimizerOptions: {
-        plugins: [
-          // ["imagemin-webp"],
-          ["svgo"],
-          ["gifsicle"],
-          ["pngquant", { quality: [0.3, 0.6] }],
-          ["mozjpeg", { quality: 50 }],
-        ],
+        plugins: [["svgo"], ["gifsicle"], ["pngquant", { quality: [0.3, 0.6] }], ["mozjpeg", { quality: 50 }]],
       },
     }),
     new MiniCssExtractPlugin({
